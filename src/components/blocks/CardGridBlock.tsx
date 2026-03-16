@@ -35,7 +35,7 @@ interface Props {
 
 export default function CardGridBlock({ block }: Props) {
   return (
-    <section className="py-8 px-6 pb-24">
+    <section className="py-8 px-6 pb-28 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {block.cards.map((card, i) => (
@@ -63,9 +63,9 @@ export default function CardGridBlock({ block }: Props) {
                 {card.text}
               </p>
 
-              <div className="mt-auto pt-3 border-t border-border/60 flex items-center gap-1 text-xs font-semibold text-primary opacity-0 group-hover:opacity-100 transition-opacity">
-                Learn more
-                <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {/* Arrow indicator — decorative, no hardcoded label */}
+              <div className="mt-auto pt-3 border-t border-border/60 flex items-center justify-end opacity-0 group-hover:opacity-100 transition-opacity">
+                <svg className="w-3.5 h-3.5 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </div>

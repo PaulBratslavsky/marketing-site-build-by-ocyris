@@ -85,34 +85,43 @@ body {
   background-clip: text;
 }
 
-/* Mesh/noise hero background */
+/* Dark mesh hero background */
 .hero-mesh {
-  background-color: oklch(0.08 0.02 265);
+  background-color: oklch(0.07 0.025 265);
   background-image:
-    radial-gradient(ellipse 80% 60% at 20% 20%, oklch(0.52 0.26 270 / 0.35) 0%, transparent 60%),
-    radial-gradient(ellipse 60% 50% at 80% 80%, oklch(0.55 0.26 310 / 0.25) 0%, transparent 60%),
-    radial-gradient(ellipse 50% 40% at 50% 50%, oklch(0.45 0.20 290 / 0.15) 0%, transparent 70%);
+    radial-gradient(ellipse 80% 55% at 15% 25%, oklch(0.52 0.26 270 / 0.40) 0%, transparent 55%),
+    radial-gradient(ellipse 65% 50% at 85% 75%, oklch(0.55 0.26 310 / 0.30) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 55% 50%, oklch(0.45 0.22 290 / 0.20) 0%, transparent 65%);
 }
 
+/* Float: pure vertical only — no rotation so image never reveals edges */
 @keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  33% { transform: translateY(-12px) rotate(1deg); }
-  66% { transform: translateY(-6px) rotate(-1deg); }
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
 }
 
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(28px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes shimmer {
   0%   { background-position: -200% center; }
-  100% { background-position: 200% center; }
+  100% { background-position:  200% center; }
 }
 
-.animate-float { animation: float 6s ease-in-out infinite; }
-.animate-fade-up { animation: fade-up 0.7s ease-out forwards; }
-.animate-delay-100 { animation-delay: 100ms; }
-.animate-delay-200 { animation-delay: 200ms; }
-.animate-delay-300 { animation-delay: 300ms; }
-.animate-delay-400 { animation-delay: 400ms; }
+@keyframes pulse-ring {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(139, 92, 246, 0); }
+}
+
+.animate-float       { animation: float 6s ease-in-out infinite; }
+.animate-fade-up     { animation: fade-up 0.7s ease-out forwards; }
+.animate-pulse-ring  { animation: pulse-ring 2s ease-in-out infinite; }
+.animate-delay-100   { animation-delay: 100ms; }
+.animate-delay-200   { animation-delay: 200ms; }
+.animate-delay-300   { animation-delay: 300ms; }
+.animate-delay-400   { animation-delay: 400ms; }
+
+/* Smooth scroll */
+html { scroll-behavior: smooth; }
