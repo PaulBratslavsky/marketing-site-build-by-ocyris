@@ -6,11 +6,12 @@ export function getStrapiUrl(): string {
 export function getStrapiMediaUrl(path: string): string {
   if (!path) return ''
   if (path.startsWith('http')) return path
-  return `${getStrapiUrl()}${path}`
+  const strapiUrl = import.meta.env.VITE_STRAPI_URL || 'http://localhost:1337'
+  return `${strapiUrl}${path}`
 }
 
 export async function fetchStrapi<T>(path: string): Promise<T> {
-  const strapiUrl = getStrapiUrl()
+  const strapiUrl = import.meta.env.VITE_STRAPI_URL || 'http://localhost:1337'
   const apiUrl = new URL(path, strapiUrl)
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',

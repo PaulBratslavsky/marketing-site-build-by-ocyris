@@ -1,0 +1,1 @@
+import{j as e}from"./main-DJZCky-s.js";function n({error:r}){const s=r instanceof Error?r.message:"An unexpected error occurred.";return e.jsx("div",{className:"flex min-h-screen items-center justify-center p-8",children:e.jsx("div",{className:"text-center space-y-2",children:e.jsx("p",{className:"text-red-600 font-semibold text-lg",children:s})})})}export{n as errorComponent};
